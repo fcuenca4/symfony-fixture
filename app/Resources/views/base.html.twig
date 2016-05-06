@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Torneo Futbol{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/miapp/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bundles/miapp/js/jquery.js') }}"></script>
+    <script src="{{ asset('bundles/miapp/js/bootstrap.min.js') }}"></script>
+{% endblock %}
+</body>
+
+</html>

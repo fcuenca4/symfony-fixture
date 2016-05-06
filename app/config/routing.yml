@@ -1,0 +1,12 @@
+mi_app:
+    resource: "@MiAppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    resource: "@MiAppBundle/Resources/config/routing.yml"
