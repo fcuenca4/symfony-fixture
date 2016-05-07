@@ -1,7 +1,7 @@
-{% extends 'MiAppBundle::navbar.html.twig' %}
-{% block body %}
+{% extends 'MiAppBundle::Default/index.html.twig' %}
+{% block login %}
     {{ parent() }}
+    {{ block('fos_user_content') }}
 {% endblock %}
- 
 
 
