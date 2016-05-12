@@ -19,10 +19,10 @@ class DefaultController extends Controller
         } else {
             $usr = $this->container->get('security.token_storage')->getToken()->getUser();
             if ($usr->hasRole('ROLE_ADMIN')) {
-                $response = $this->render('C:\Users\fcuenca\Desktop\proyecto_symfony\src\MiAppBundle\Resources\views\adminview.html.twig');
+                return $this->RedirectToRoute('admin_index');
             } else if ($usr->hasRole('ROLE_USER')) {
                 {
-                    $response = $this->render('C:\Users\fcuenca\Desktop\proyecto_symfony\src\MiAppBundle\Resources\views\editorview.html.twig');
+                    return $this->RedirectToRoute('editor_index');
                 }
             }
         }
