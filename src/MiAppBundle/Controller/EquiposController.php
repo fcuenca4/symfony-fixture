@@ -28,7 +28,7 @@ class EquiposController extends Controller
 
         $equipos = $em->getRepository('MiAppBundle:Equipos')->findAll();
 
-        return $this->render('equipos/index.html.twig', array(
+        return $this->render('MiAppBundle::equipos/index.html.twig', array(
             'equipos' => $equipos,
         ));
     }
@@ -53,7 +53,7 @@ class EquiposController extends Controller
             return $this->redirectToRoute('equipos_show', array('id' => $equipo->getId()));
         }
 
-        return $this->render('equipos/new.html.twig', array(
+        return $this->render('MiAppBundle::equipos/new.html.twig', array(
             'equipo' => $equipo,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class EquiposController extends Controller
     {
         $deleteForm = $this->createDeleteForm($equipo);
 
-        return $this->render('equipos/show.html.twig', array(
+        return $this->render('MiAppBundle::equipos/show.html.twig', array(
             'equipo' => $equipo,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class EquiposController extends Controller
             return $this->redirectToRoute('equipos_edit', array('id' => $equipo->getId()));
         }
 
-        return $this->render('equipos/edit.html.twig', array(
+        return $this->render('MiAppBundle::equipos/edit.html.twig', array(
             'equipo' => $equipo,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

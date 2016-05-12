@@ -1,0 +1,48 @@
+{% extends 'MiAppBundle::Default/index.html.twig' %}
+
+{#{% block stylesheets %}#}
+    {##}
+    {#<link href="{{ asset('bundles/miapp/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />#}
+{#{% endblock %}#}
+
+{% block editor %}
+   
+
+    <h1 style="text-align:center">Arbitros
+       
+             
+            <a href="{{ path('arbitros_new') }}"><button class="btn btn-default pull-right">Agregar Arbitro</button></a>
+        
+       
+    </h1>
+
+   <div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>                
+                <th>Nombre</th>
+                <th>Edad</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for arbitro in arbitros %}
+            <tr>
+                
+                <td>{{ arbitro.nombre }}</td>
+                <td>{{ arbitro.edad }}</td>
+                <td>
+                    <ul>
+                        <button class="btn btn-default pull-right">
+                            <a href="{{ path('arbitros_edit', { 'id': arbitro.id }) }}" toggle="tooltip" title="Visualizar Arbitro">
+                                <span class="glyphicon glyphicon-eye-open" style="color:#00695c"></span></a>
+                        </button>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   </div>
+{% endblock %}

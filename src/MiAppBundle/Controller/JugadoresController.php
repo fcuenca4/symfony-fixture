@@ -28,7 +28,7 @@ class JugadoresController extends Controller
 
         $jugadores = $em->getRepository('MiAppBundle:Jugadores')->findAll();
 
-        return $this->render('jugadores/index.html.twig', array(
+        return $this->render('MiAppBundle::jugadores/index.html.twig', array(
             'jugadores' => $jugadores,
         ));
     }
@@ -53,7 +53,7 @@ class JugadoresController extends Controller
             return $this->redirectToRoute('jugadores_show', array('id' => $jugadore->getId()));
         }
 
-        return $this->render('jugadores/new.html.twig', array(
+        return $this->render('MiAppBundle::jugadores/new.html.twig', array(
             'jugadore' => $jugadore,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class JugadoresController extends Controller
     {
         $deleteForm = $this->createDeleteForm($jugadore);
 
-        return $this->render('jugadores/show.html.twig', array(
+        return $this->render('MiAppBundle::jugadores/show.html.twig', array(
             'jugadore' => $jugadore,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class JugadoresController extends Controller
             return $this->redirectToRoute('jugadores_edit', array('id' => $jugadore->getId()));
         }
 
-        return $this->render('jugadores/edit.html.twig', array(
+        return $this->render('MiAppBundle::jugadores/edit.html.twig', array(
             'jugadore' => $jugadore,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -28,7 +28,7 @@ class ArbitrosController extends Controller
 
         $arbitros = $em->getRepository('MiAppBundle:Arbitros')->findAll();
 
-        return $this->render('arbitros/index.html.twig', array(
+        return $this->render('MiAppBundle::arbitros/index.html.twig', array(
             'arbitros' => $arbitros,
         ));
     }
@@ -53,7 +53,7 @@ class ArbitrosController extends Controller
             return $this->redirectToRoute('arbitros_show', array('id' => $arbitro->getId()));
         }
 
-        return $this->render('arbitros/new.html.twig', array(
+        return $this->render('MiAppBundle::arbitros/new.html.twig', array(
             'arbitro' => $arbitro,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class ArbitrosController extends Controller
     {
         $deleteForm = $this->createDeleteForm($arbitro);
 
-        return $this->render('arbitros/show.html.twig', array(
+        return $this->render('MiAppBundle::arbitros/show.html.twig', array(
             'arbitro' => $arbitro,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class ArbitrosController extends Controller
             return $this->redirectToRoute('arbitros_edit', array('id' => $arbitro->getId()));
         }
 
-        return $this->render('arbitros/edit.html.twig', array(
+        return $this->render('MiAppBundle::arbitros/edit.html.twig', array(
             'arbitro' => $arbitro,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

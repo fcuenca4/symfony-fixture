@@ -28,7 +28,7 @@ class PartidosController extends Controller
 
         $partidos = $em->getRepository('MiAppBundle:Partidos')->findAll();
 
-        return $this->render('partidos/index.html.twig', array(
+        return $this->render('MiAppBundle::partidos/index.html.twig', array(
             'partidos' => $partidos,
         ));
     }
@@ -53,7 +53,7 @@ class PartidosController extends Controller
             return $this->redirectToRoute('partidos_show', array('id' => $partido->getId()));
         }
 
-        return $this->render('partidos/new.html.twig', array(
+        return $this->render('MiAppBundle::partidos/new.html.twig', array(
             'partido' => $partido,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class PartidosController extends Controller
     {
         $deleteForm = $this->createDeleteForm($partido);
 
-        return $this->render('partidos/show.html.twig', array(
+        return $this->render('MiAppBundle::partidos/show.html.twig', array(
             'partido' => $partido,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class PartidosController extends Controller
             return $this->redirectToRoute('partidos_edit', array('id' => $partido->getId()));
         }
 
-        return $this->render('partidos/edit.html.twig', array(
+        return $this->render('MiAppBundle::partidos/edit.html.twig', array(
             'partido' => $partido,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -28,7 +28,7 @@ class GolesController extends Controller
 
         $goles = $em->getRepository('MiAppBundle:Goles')->findAll();
 
-        return $this->render('goles/index.html.twig', array(
+        return $this->render('MiAppBundle::goles/index.html.twig', array(
             'goles' => $goles,
         ));
     }
@@ -53,7 +53,7 @@ class GolesController extends Controller
             return $this->redirectToRoute('goles_show', array('id' => $gole->getId()));
         }
 
-        return $this->render('goles/new.html.twig', array(
+        return $this->render('MiAppBundle::goles/new.html.twig', array(
             'gole' => $gole,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class GolesController extends Controller
     {
         $deleteForm = $this->createDeleteForm($gole);
 
-        return $this->render('goles/show.html.twig', array(
+        return $this->render('MiAppBundle::goles/show.html.twig', array(
             'gole' => $gole,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class GolesController extends Controller
             return $this->redirectToRoute('goles_edit', array('id' => $gole->getId()));
         }
 
-        return $this->render('goles/edit.html.twig', array(
+        return $this->render('MiAppBundle::goles/edit.html.twig', array(
             'gole' => $gole,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

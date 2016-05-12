@@ -37,7 +37,7 @@ class EditorController extends Controller
             ->where('u.idEditor = ?1')
             ->setParameter('1', $usr);
         $partidos = $qb->getQuery()->getResult();
-        return $this->render('editor/index.html.twig', array(
+        return $this->render('MiAppBundle::editor/index.html.twig', array(
             'partidos' => $partidos,
         ));
     }
@@ -60,7 +60,7 @@ class EditorController extends Controller
             return $this->redirectToRoute('partidos_edit', array('id' => $partido->getId()));
         }
 
-        return $this->render('editor/edit.html.twig', array(
+        return $this->render('MiAppBundle::editor/edit.html.twig', array(
             'partido' => $partido,
             'edit_form' => $editForm->createView()
         ));

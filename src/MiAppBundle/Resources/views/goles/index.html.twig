@@ -1,0 +1,41 @@
+{% extends 'MiAppBundle::Default/index.html.twig' %}
+
+{% block editor %}
+    <h1 style="text-align:center">Goles del Campeonato 
+       
+             
+            <a href="{{ path('goles_new') }}"><button class="btn btn-default pull-right">Agregar Gol</button></a>
+        
+       
+    </h1>
+   <div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Jugador</th>
+                <th>Equipo</th>
+                <th>Fecha</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gole in goles %}
+            <tr>
+               <td>{{ gole.idJugador.getNombre() }}</td>
+               <td>{{ gole.idEquipo.getNombre() }}</td>
+               <td>{{ gole.idPartido.getNombre() }}</td>
+                <td>
+                    <ul>
+                        <button class="btn btn-default pull-right">
+                            <a href="{{ path('goles_edit', { 'id': gole.id }) }}" toggle="tooltip" title="Visualizar Gol">
+                                <span class="glyphicon glyphicon-eye-open" style="color:#00695c"></span></a>
+                        </button>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   </div>
+   
+{% endblock %}

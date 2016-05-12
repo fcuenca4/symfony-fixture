@@ -1,10 +1,12 @@
 body {
     padding-top: 60px;
+    color: #6897BB;
+}
+
+.navbar-inverse .navbar-brand {
     color: #9acfea;
 }
-.navbar-inverse .navbar-brand {
-    color:#9acfea;
-}
+
 .starter-template {
     padding: 40px 15px;
     text-align: center;

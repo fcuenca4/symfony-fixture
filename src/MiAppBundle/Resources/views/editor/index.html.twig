@@ -1,0 +1,11 @@
+{% extends 'MiAppBundle::partidos/index.html.twig' %}
+
+{% block titulo %}
+    <h1 style="text-align:center">Vista del Editor</h1>
+{% endblock %}
+{% block editor %}
+    {{ parent() }}
+{% endblock %}
+{% block editref %}
+    <a href="{{ path('editor_edit', { 'id': partido.id }) }}">edit</a>
+{% endblock %}
