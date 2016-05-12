@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 style="text-align:center">Crear Arbitro
+            <button class="btn btn-default  pull-left ">
+                <a href="{{ path('arbitros_index') }}" toggle="tooltip" title="Volver">
+                    <span class="glyphicon glyphicon-chevron-left" style="color:#00695c"></span>
+                </a>
+            </button>
+    </h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Crear Arbitro" toggle="tooltip" title="Guardar nuevo arbitro">
+    {{ form_end(form) }}
+
+    
+{% endblock %}

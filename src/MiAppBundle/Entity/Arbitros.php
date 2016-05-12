@@ -24,7 +24,7 @@ class Arbitros
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=false)
      */
     private $nombre;
 
@@ -91,5 +91,9 @@ class Arbitros
     public function getEdad()
     {
         return $this->edad;
+    }
+    public function __toString()
+    {
+        return "".$this->nombre;
     }
 }

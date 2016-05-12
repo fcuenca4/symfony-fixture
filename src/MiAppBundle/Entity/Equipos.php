@@ -24,9 +24,16 @@ class Equipos
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=false)
      */
     private $nombre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ptos", type="integer", nullable=true)
+     */
+    private $ptos;
 
 
 
@@ -61,5 +68,32 @@ class Equipos
     public function getNombre()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Set ptos
+     *
+     * @param integer $ptos
+     * @return Equipos
+     */
+    public function setPtos($ptos)
+    {
+        $this->ptos = $ptos;
+
+        return $this;
+    }
+
+    /**
+     * Get ptos
+     *
+     * @return integer 
+     */
+    public function getPtos()
+    {
+        return $this->ptos;
+    }
+    public function __toString()
+    {
+        return "".$this->nombre;
     }
 }

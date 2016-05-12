@@ -1,6 +1,6 @@
 <?php
 
-
+namespace MiAppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,7 +31,7 @@ class FosUser
     /**
      * @var string
      *
-     * @ORM\Column(name="username_canonical", type="string", length=255, nullable=false)
+     * @ORM\Column(name="username_canonical", type="string", length=45, nullable=false)
      */
     private $usernameCanonical;
 

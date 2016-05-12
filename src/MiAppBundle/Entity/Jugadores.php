@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Jugadores
  *
- * @ORM\Table(name="jugadores")
+ * @ORM\Table(name="jugadores", uniqueConstraints={@ORM\UniqueConstraint(name="id_equipo", columns={"id_equipo"})})
  * @ORM\Entity
  */
 class Jugadores
@@ -17,23 +17,14 @@ class Jugadores
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_equipo", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $idEquipo;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=false)
      */
     private $nombre;
 
@@ -44,20 +35,17 @@ class Jugadores
      */
     private $edad;
 
-
-
     /**
-     * Set id
+     * @var \Equipos
      *
-     * @param integer $id
-     * @return Jugadores
+     * @ORM\ManyToOne(targetEntity="Equipos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_equipo", referencedColumnName="id")
+     * })
      */
-    public function setId($id)
-    {
-        $this->id = $id;
+    private $idEquipo;
 
-        return $this;
-    }
+
 
     /**
      * Get id
@@ -67,29 +55,6 @@ class Jugadores
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idEquipo
-     *
-     * @param integer $idEquipo
-     * @return Jugadores
-     */
-    public function setIdEquipo($idEquipo)
-    {
-        $this->idEquipo = $idEquipo;
-
-        return $this;
-    }
-
-    /**
-     * Get idEquipo
-     *
-     * @return integer 
-     */
-    public function getIdEquipo()
-    {
-        return $this->idEquipo;
     }
 
     /**
@@ -136,5 +101,28 @@ class Jugadores
     public function getEdad()
     {
         return $this->edad;
+    }
+
+    /**
+     * Set idEquipo
+     *
+     * @param \MiAppBundle\Entity\Equipos $idEquipo
+     * @return Jugadores
+     */
+    public function setIdEquipo(\MiAppBundle\Entity\Equipos $idEquipo = null)
+    {
+        $this->idEquipo = $idEquipo;
+
+        return $this;
+    }
+
+    /**
+     * Get idEquipo
+     *
+     * @return \MiAppBundle\Entity\Equipos 
+     */
+    public function getIdEquipo()
+    {
+        return $this->idEquipo;
     }
 }

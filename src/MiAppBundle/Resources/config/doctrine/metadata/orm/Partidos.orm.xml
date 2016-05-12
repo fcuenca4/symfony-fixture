@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Partidos" table="partidos">
+    <indexes>
+      <index name="FK_arbitro" columns="id_arbitro"/>
+      <index name="FK_editor" columns="id_editor"/>
+      <index name="FK_equipo1" columns="id_equipo1"/>
+      <index name="FK_equipo2" columns="id_equipo2"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fechaPartido" type="date" column="fecha_partido" nullable="false"/>
+    <field name="resultEq1" type="integer" column="result_eq1" nullable="false"/>
+    <field name="resultEq2" type="integer" column="result_eq2" nullable="false"/>
+    <field name="observacion" type="text" column="observacion" length="65535" nullable="true"/>
+    <field name="termino" type="boolean" column="termino" nullable="false"/>
+    <many-to-one field="idEquipo2" target-entity="Equipos">
+      <join-columns>
+        <join-column name="id_equipo2" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEquipo1" target-entity="Equipos">
+      <join-columns>
+        <join-column name="id_equipo1" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEditor" target-entity="FosUser">
+      <join-columns>
+        <join-column name="id_editor" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idArbitro" target-entity="Arbitros">
+      <join-columns>
+        <join-column name="id_arbitro" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

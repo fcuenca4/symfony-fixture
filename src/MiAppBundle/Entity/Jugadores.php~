@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Jugadores
  *
- * @ORM\Table(name="jugadores")
+ * @ORM\Table(name="jugadores", uniqueConstraints={@ORM\UniqueConstraint(name="id_equipo", columns={"id_equipo"})})
  * @ORM\Entity
  */
 class Jugadores
@@ -17,23 +17,14 @@ class Jugadores
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_equipo", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $idEquipo;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=false)
      */
     private $nombre;
 
@@ -43,6 +34,16 @@ class Jugadores
      * @ORM\Column(name="edad", type="integer", nullable=false)
      */
     private $edad;
+
+    /**
+     * @var \Equipos
+     *
+     * @ORM\ManyToOne(targetEntity="Equipos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_equipo", referencedColumnName="id")
+     * })
+     */
+    private $idEquipo;
 
 
 }

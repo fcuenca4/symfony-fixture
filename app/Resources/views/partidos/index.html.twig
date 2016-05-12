@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block titulo %}
+
+        <h1 style="text-align:center">Partidos
+            <a href="{{ path('partidos_new') }}">
+                <button class="btn btn-default pull-right">Agregar Partido</button>
+            </a>
+        </h1>
+    {% endblock %}
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Equipo Local</th>
+                <th>Equipo Visitante</th>
+                {#<th>Resulteq1</th>#}
+                {#<th>Resulteq2</th>#}
+                <th>Observacion</th>
+                <th>Termino</th>
+                <th>Editor</th>
+                <th>Arbitro</th>
+
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for partido in partidos %}
+                <tr>
+                    <td>{% if partido.fechaPartido %}{{ partido.fechaPartido|date('Y-m-d') }}{% endif %}</td>
+                    <td>{{ partido.idEquipo1.getNombre() }} ({{ partido.resultEq1 }})</td>
+                    <td>{{ partido.idEquipo2.getNombre() }} ({{ partido.resultEq2 }})</td>
+                    {#<td>{{ partido.resultEq1 }}</td>#}
+                    {#<td>{{ partido.resultEq2 }}</td>#}
+                    <td>{{ partido.observacion }}</td>
+                    <td>{% if partido.termino %}Yes{% else %}No{% endif %}</td>
+                    <td>{{ partido.idEditor }}</td>
+                    <td>{{ partido.idArbitro }}</td>
+
+                    <td>
+                        <ul>
+                            {#<li>#}
+                            {#<a href="{{ path('partidos_show', { 'id': partido.id }) }}">show</a>#}
+                            {#</li>#}
+
+                            <li>
+                                {% block editref %}
+                                    <a href="{{ path('partidos_edit', { 'id': partido.id }) }}">edit</a>
+                                {% endblock %}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

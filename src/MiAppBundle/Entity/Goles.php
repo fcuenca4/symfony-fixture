@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Goles
  *
- * @ORM\Table(name="goles")
+ * @ORM\Table(name="goles", uniqueConstraints={@ORM\UniqueConstraint(name="id_jugador", columns={"id_jugador"}), @ORM\UniqueConstraint(name="id_equipo", columns={"id_equipo"}), @ORM\UniqueConstraint(name="id_partido", columns={"id_partido"})})
  * @ORM\Entity
  */
 class Goles
@@ -15,48 +15,61 @@ class Goles
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_equipo", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \Equipos
+     *
+     * @ORM\ManyToOne(targetEntity="Equipos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_equipo", referencedColumnName="id")
+     * })
      */
     private $idEquipo;
 
     /**
-     * @var integer
+     * @var \Jugadores
      *
-     * @ORM\Column(name="id_jugador", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="Jugadores")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_jugador", referencedColumnName="id")
+     * })
      */
     private $idJugador;
 
     /**
-     * @var integer
+     * @var \Partidos
      *
-     * @ORM\Column(name="see_goal", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="Partidos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_partido", referencedColumnName="id")
+     * })
      */
-    private $seeGoal;
+    private $idPartido;
+
+
 
     /**
-     * @var \DateTime
+     * Get id
      *
-     * @ORM\Column(name="fecha", type="date", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @return integer 
      */
-    private $fecha;
-
-
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set idEquipo
      *
-     * @param integer $idEquipo
+     * @param \MiAppBundle\Entity\Equipos $idEquipo
      * @return Goles
      */
-    public function setIdEquipo($idEquipo)
+    public function setIdEquipo(\MiAppBundle\Entity\Equipos $idEquipo = null)
     {
         $this->idEquipo = $idEquipo;
 
@@ -66,7 +79,7 @@ class Goles
     /**
      * Get idEquipo
      *
-     * @return integer 
+     * @return \MiAppBundle\Entity\Equipos 
      */
     public function getIdEquipo()
     {
@@ -76,10 +89,10 @@ class Goles
     /**
      * Set idJugador
      *
-     * @param integer $idJugador
+     * @param \MiAppBundle\Entity\Jugadores $idJugador
      * @return Goles
      */
-    public function setIdJugador($idJugador)
+    public function setIdJugador(\MiAppBundle\Entity\Jugadores $idJugador = null)
     {
         $this->idJugador = $idJugador;
 
@@ -89,7 +102,7 @@ class Goles
     /**
      * Get idJugador
      *
-     * @return integer 
+     * @return \MiAppBundle\Entity\Jugadores 
      */
     public function getIdJugador()
     {
@@ -97,48 +110,25 @@ class Goles
     }
 
     /**
-     * Set seeGoal
+     * Set idPartido
      *
-     * @param integer $seeGoal
+     * @param \MiAppBundle\Entity\Partidos $idPartido
      * @return Goles
      */
-    public function setSeeGoal($seeGoal)
+    public function setIdPartido(\MiAppBundle\Entity\Partidos $idPartido = null)
     {
-        $this->seeGoal = $seeGoal;
+        $this->idPartido = $idPartido;
 
         return $this;
     }
 
     /**
-     * Get seeGoal
+     * Get idPartido
      *
-     * @return integer 
+     * @return \MiAppBundle\Entity\Partidos 
      */
-    public function getSeeGoal()
+    public function getIdPartido()
     {
-        return $this->seeGoal;
-    }
-
-    /**
-     * Set fecha
-     *
-     * @param \DateTime $fecha
-     * @return Goles
-     */
-    public function setFecha($fecha)
-    {
-        $this->fecha = $fecha;
-
-        return $this;
-    }
-
-    /**
-     * Get fecha
-     *
-     * @return \DateTime 
-     */
-    public function getFecha()
-    {
-        return $this->fecha;
+        return $this->idPartido;
     }
 }

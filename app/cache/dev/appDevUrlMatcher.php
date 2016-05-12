@@ -105,6 +105,86 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/a')) {
+            // admin_index
+            if (rtrim($pathinfo, '/') === '/admin') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_admin_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'admin_index');
+                }
+
+                return array (  '_controller' => 'MiAppBundle\\Controller\\AdminController::indexAction',  '_route' => 'admin_index',);
+            }
+            not_admin_index:
+
+            if (0 === strpos($pathinfo, '/arbitros')) {
+                // arbitros_index
+                if (rtrim($pathinfo, '/') === '/arbitros') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_arbitros_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'arbitros_index');
+                    }
+
+                    return array (  '_controller' => 'MiAppBundle\\Controller\\ArbitrosController::indexAction',  '_route' => 'arbitros_index',);
+                }
+                not_arbitros_index:
+
+                // arbitros_new
+                if ($pathinfo === '/arbitros/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_arbitros_new;
+                    }
+
+                    return array (  '_controller' => 'MiAppBundle\\Controller\\ArbitrosController::newAction',  '_route' => 'arbitros_new',);
+                }
+                not_arbitros_new:
+
+                // arbitros_show
+                if (preg_match('#^/arbitros/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_arbitros_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'arbitros_show')), array (  '_controller' => 'MiAppBundle\\Controller\\ArbitrosController::showAction',));
+                }
+                not_arbitros_show:
+
+                // arbitros_edit
+                if (preg_match('#^/arbitros/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_arbitros_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'arbitros_edit')), array (  '_controller' => 'MiAppBundle\\Controller\\ArbitrosController::editAction',));
+                }
+                not_arbitros_edit:
+
+                // arbitros_delete
+                if (preg_match('#^/arbitros/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_arbitros_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'arbitros_delete')), array (  '_controller' => 'MiAppBundle\\Controller\\ArbitrosController::deleteAction',));
+                }
+                not_arbitros_delete:
+
+            }
+
+        }
+
         // miapp_default_index
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
@@ -112,6 +192,286 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             return array (  '_controller' => 'MiAppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'miapp_default_index',);
+        }
+
+        if (0 === strpos($pathinfo, '/e')) {
+            if (0 === strpos($pathinfo, '/editor')) {
+                // editor_index
+                if (rtrim($pathinfo, '/') === '/editor') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_editor_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'editor_index');
+                    }
+
+                    return array (  '_controller' => 'MiAppBundle\\Controller\\EditorController::indexAction',  '_route' => 'editor_index',);
+                }
+                not_editor_index:
+
+                // editor_edit
+                if (preg_match('#^/editor/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_editor_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'editor_edit')), array (  '_controller' => 'MiAppBundle\\Controller\\EditorController::editAction',));
+                }
+                not_editor_edit:
+
+            }
+
+            if (0 === strpos($pathinfo, '/equipos')) {
+                // equipos_index
+                if (rtrim($pathinfo, '/') === '/equipos') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_equipos_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'equipos_index');
+                    }
+
+                    return array (  '_controller' => 'MiAppBundle\\Controller\\EquiposController::indexAction',  '_route' => 'equipos_index',);
+                }
+                not_equipos_index:
+
+                // equipos_new
+                if ($pathinfo === '/equipos/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_equipos_new;
+                    }
+
+                    return array (  '_controller' => 'MiAppBundle\\Controller\\EquiposController::newAction',  '_route' => 'equipos_new',);
+                }
+                not_equipos_new:
+
+                // equipos_show
+                if (preg_match('#^/equipos/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_equipos_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'equipos_show')), array (  '_controller' => 'MiAppBundle\\Controller\\EquiposController::showAction',));
+                }
+                not_equipos_show:
+
+                // equipos_edit
+                if (preg_match('#^/equipos/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_equipos_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'equipos_edit')), array (  '_controller' => 'MiAppBundle\\Controller\\EquiposController::editAction',));
+                }
+                not_equipos_edit:
+
+                // equipos_delete
+                if (preg_match('#^/equipos/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_equipos_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'equipos_delete')), array (  '_controller' => 'MiAppBundle\\Controller\\EquiposController::deleteAction',));
+                }
+                not_equipos_delete:
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/goles')) {
+            // goles_index
+            if (rtrim($pathinfo, '/') === '/goles') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_goles_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'goles_index');
+                }
+
+                return array (  '_controller' => 'MiAppBundle\\Controller\\GolesController::indexAction',  '_route' => 'goles_index',);
+            }
+            not_goles_index:
+
+            // goles_new
+            if ($pathinfo === '/goles/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_goles_new;
+                }
+
+                return array (  '_controller' => 'MiAppBundle\\Controller\\GolesController::newAction',  '_route' => 'goles_new',);
+            }
+            not_goles_new:
+
+            // goles_show
+            if (preg_match('#^/goles/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_goles_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'goles_show')), array (  '_controller' => 'MiAppBundle\\Controller\\GolesController::showAction',));
+            }
+            not_goles_show:
+
+            // goles_edit
+            if (preg_match('#^/goles/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_goles_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'goles_edit')), array (  '_controller' => 'MiAppBundle\\Controller\\GolesController::editAction',));
+            }
+            not_goles_edit:
+
+            // goles_delete
+            if (preg_match('#^/goles/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_goles_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'goles_delete')), array (  '_controller' => 'MiAppBundle\\Controller\\GolesController::deleteAction',));
+            }
+            not_goles_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/jugadores')) {
+            // jugadores_index
+            if (rtrim($pathinfo, '/') === '/jugadores') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_jugadores_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'jugadores_index');
+                }
+
+                return array (  '_controller' => 'MiAppBundle\\Controller\\JugadoresController::indexAction',  '_route' => 'jugadores_index',);
+            }
+            not_jugadores_index:
+
+            // jugadores_new
+            if ($pathinfo === '/jugadores/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_jugadores_new;
+                }
+
+                return array (  '_controller' => 'MiAppBundle\\Controller\\JugadoresController::newAction',  '_route' => 'jugadores_new',);
+            }
+            not_jugadores_new:
+
+            // jugadores_show
+            if (preg_match('#^/jugadores/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_jugadores_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'jugadores_show')), array (  '_controller' => 'MiAppBundle\\Controller\\JugadoresController::showAction',));
+            }
+            not_jugadores_show:
+
+            // jugadores_edit
+            if (preg_match('#^/jugadores/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_jugadores_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'jugadores_edit')), array (  '_controller' => 'MiAppBundle\\Controller\\JugadoresController::editAction',));
+            }
+            not_jugadores_edit:
+
+            // jugadores_delete
+            if (preg_match('#^/jugadores/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_jugadores_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'jugadores_delete')), array (  '_controller' => 'MiAppBundle\\Controller\\JugadoresController::deleteAction',));
+            }
+            not_jugadores_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/partidos')) {
+            // partidos_index
+            if (rtrim($pathinfo, '/') === '/partidos') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_partidos_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'partidos_index');
+                }
+
+                return array (  '_controller' => 'MiAppBundle\\Controller\\PartidosController::indexAction',  '_route' => 'partidos_index',);
+            }
+            not_partidos_index:
+
+            // partidos_new
+            if ($pathinfo === '/partidos/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_partidos_new;
+                }
+
+                return array (  '_controller' => 'MiAppBundle\\Controller\\PartidosController::newAction',  '_route' => 'partidos_new',);
+            }
+            not_partidos_new:
+
+            // partidos_show
+            if (preg_match('#^/partidos/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_partidos_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'partidos_show')), array (  '_controller' => 'MiAppBundle\\Controller\\PartidosController::showAction',));
+            }
+            not_partidos_show:
+
+            // partidos_edit
+            if (preg_match('#^/partidos/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_partidos_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'partidos_edit')), array (  '_controller' => 'MiAppBundle\\Controller\\PartidosController::editAction',));
+            }
+            not_partidos_edit:
+
+            // partidos_delete
+            if (preg_match('#^/partidos/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_partidos_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'partidos_delete')), array (  '_controller' => 'MiAppBundle\\Controller\\PartidosController::deleteAction',));
+            }
+            not_partidos_delete:
+
         }
 
         // homepage

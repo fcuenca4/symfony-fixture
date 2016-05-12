@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 style="text-align:center">Crear Equipo
+            <button class="btn btn-default  pull-left ">
+                <a href="{{ path('equipos_index') }}" toggle="tooltip" title="Volver">
+                    <span class="glyphicon glyphicon-chevron-left" style="color:#00695c"></span>
+                </a>
+            </button>
+    </h1>
+
+    <div class="container">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Crear Equipo" toggle="tooltip" title="Guardar nuevo equipo">
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

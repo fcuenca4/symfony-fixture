@@ -1,6 +1,6 @@
 <?php
 
-/* MiAppBundle::layout.html.twig */
+/* FOSUserBundle::layout.html.twig */
 class __TwigTemplate_225921c6684f58190a21fbaeb5d94247f71b81f4c953c366856877fe7e5a0fdf extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,80 +8,51 @@ class __TwigTemplate_225921c6684f58190a21fbaeb5d94247f71b81f4c953c366856877fe7e5
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("::base.html.twig", "MiAppBundle::layout.html.twig", 1);
+        $this->parent = $this->loadTemplate("MiAppBundle::Default/index.html.twig", "FOSUserBundle::layout.html.twig", 1);
         $this->blocks = array(
-            'stylesheets' => array($this, 'block_stylesheets'),
-            'body' => array($this, 'block_body'),
-            'javascripts' => array($this, 'block_javascripts'),
+            'login' => array($this, 'block_login'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "MiAppBundle::Default/index.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_39715f8e95fc05ee5956c7ecfc7fbc06a47821156a38555bef8932a2573c502e = $this->env->getExtension("native_profiler");
-        $__internal_39715f8e95fc05ee5956c7ecfc7fbc06a47821156a38555bef8932a2573c502e->enter($__internal_39715f8e95fc05ee5956c7ecfc7fbc06a47821156a38555bef8932a2573c502e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MiAppBundle::layout.html.twig"));
+        $__internal_e4b91448c9392f459c605b02dc896ee388c3d7ead90e1398c09ee196b2ffbbac = $this->env->getExtension("native_profiler");
+        $__internal_e4b91448c9392f459c605b02dc896ee388c3d7ead90e1398c09ee196b2ffbbac->enter($__internal_e4b91448c9392f459c605b02dc896ee388c3d7ead90e1398c09ee196b2ffbbac_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle::layout.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_39715f8e95fc05ee5956c7ecfc7fbc06a47821156a38555bef8932a2573c502e->leave($__internal_39715f8e95fc05ee5956c7ecfc7fbc06a47821156a38555bef8932a2573c502e_prof);
+        $__internal_e4b91448c9392f459c605b02dc896ee388c3d7ead90e1398c09ee196b2ffbbac->leave($__internal_e4b91448c9392f459c605b02dc896ee388c3d7ead90e1398c09ee196b2ffbbac_prof);
 
     }
 
-    // line 3
-    public function block_stylesheets($context, array $blocks = array())
+    // line 2
+    public function block_login($context, array $blocks = array())
     {
-        $__internal_b82601ceea5a151932e3c684c522ed5809e5c998502ffe1f1283b074ab40aaca = $this->env->getExtension("native_profiler");
-        $__internal_b82601ceea5a151932e3c684c522ed5809e5c998502ffe1f1283b074ab40aaca->enter($__internal_b82601ceea5a151932e3c684c522ed5809e5c998502ffe1f1283b074ab40aaca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_b279af1ee61f14886a9dba93af0da16bca832470e0c77bd9efdcc5b2d9e97058 = $this->env->getExtension("native_profiler");
+        $__internal_b279af1ee61f14886a9dba93af0da16bca832470e0c77bd9efdcc5b2d9e97058->enter($__internal_b279af1ee61f14886a9dba93af0da16bca832470e0c77bd9efdcc5b2d9e97058_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "login"));
 
+        // line 3
+        echo "    ";
+        $this->displayParentBlock("login", $context, $blocks);
+        echo "
+    ";
         // line 4
-        echo "<link href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/miapp/css/bootstrap.css"), "html", null, true);
-        echo "\" type=\"text/css\" rel=\"stylesheet\">
-<link href=\"";
-        // line 5
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/miapp/css/bootstrap-responsive.css"), "html", null, true);
-        echo "\" type=\"text/css\" rel=\"stylesheet\">
+        $this->displayBlock("fos_user_content", $context, $blocks);
+        echo "
 ";
         
-        $__internal_b82601ceea5a151932e3c684c522ed5809e5c998502ffe1f1283b074ab40aaca->leave($__internal_b82601ceea5a151932e3c684c522ed5809e5c998502ffe1f1283b074ab40aaca_prof);
-
-    }
-
-    // line 8
-    public function block_body($context, array $blocks = array())
-    {
-        $__internal_bd1da8dc93390e260b3aab05be3d9eae7bf2d3e451f14c2ed72b49ddd9f6d3a8 = $this->env->getExtension("native_profiler");
-        $__internal_bd1da8dc93390e260b3aab05be3d9eae7bf2d3e451f14c2ed72b49ddd9f6d3a8->enter($__internal_bd1da8dc93390e260b3aab05be3d9eae7bf2d3e451f14c2ed72b49ddd9f6d3a8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
-
-        
-        $__internal_bd1da8dc93390e260b3aab05be3d9eae7bf2d3e451f14c2ed72b49ddd9f6d3a8->leave($__internal_bd1da8dc93390e260b3aab05be3d9eae7bf2d3e451f14c2ed72b49ddd9f6d3a8_prof);
-
-    }
-
-    // line 11
-    public function block_javascripts($context, array $blocks = array())
-    {
-        $__internal_75495bbab8ab15c49cf8e4e4ec36b597d8eb7568b54489eb0dbcab60964a1793 = $this->env->getExtension("native_profiler");
-        $__internal_75495bbab8ab15c49cf8e4e4ec36b597d8eb7568b54489eb0dbcab60964a1793->enter($__internal_75495bbab8ab15c49cf8e4e4ec36b597d8eb7568b54489eb0dbcab60964a1793_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 12
-        echo "<script type=\"text/javascript\" src=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/miapp/js/bootstrap.js"), "html", null, true);
-        echo "\"></script>
-";
-        
-        $__internal_75495bbab8ab15c49cf8e4e4ec36b597d8eb7568b54489eb0dbcab60964a1793->leave($__internal_75495bbab8ab15c49cf8e4e4ec36b597d8eb7568b54489eb0dbcab60964a1793_prof);
+        $__internal_b279af1ee61f14886a9dba93af0da16bca832470e0c77bd9efdcc5b2d9e97058->leave($__internal_b279af1ee61f14886a9dba93af0da16bca832470e0c77bd9efdcc5b2d9e97058_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "MiAppBundle::layout.html.twig";
+        return "FOSUserBundle::layout.html.twig";
     }
 
     public function isTraitable()
@@ -91,19 +62,14 @@ class __TwigTemplate_225921c6684f58190a21fbaeb5d94247f71b81f4c953c366856877fe7e5
 
     public function getDebugInfo()
     {
-        return array (  73 => 12,  67 => 11,  56 => 8,  47 => 5,  42 => 4,  36 => 3,  11 => 1,);
+        return array (  45 => 4,  40 => 3,  34 => 2,  11 => 1,);
     }
 }
-/* {% extends '::base.html.twig' %}*/
-/* */
-/* {% block stylesheets %}*/
-/* <link href="{{ asset('bundles/miapp/css/bootstrap.css') }}" type="text/css" rel="stylesheet">*/
-/* <link href="{{ asset('bundles/miapp/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet">*/
+/* {% extends 'MiAppBundle::Default/index.html.twig' %}*/
+/* {% block login %}*/
+/*     {{ parent() }}*/
+/*     {{ block('fos_user_content') }}*/
 /* {% endblock %}*/
 /* */
-/* {% block body %}*/
-/* {% endblock %}*/
 /* */
-/* {% block javascripts %}*/
-/* <script type="text/javascript" src="{{ asset('bundles/miapp/js/bootstrap.js') }}"></script>*/
-/* {% endblock %}*/
+/* */

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    
+    <link href="{{ asset('bundles/miapp/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    
+    <h1 style="text-align:center">Equipos Participantes 
+       
+             
+            <a href="{{ path('equipos_new') }}"><button class="btn btn-default pull-right">Agregar Equipo</button></a>
+        
+       
+    </h1>
+   
+   <div class="container">
+    <table  class="table table-hover">
+        <thead>
+            <tr>
+                
+                <th>Nombre</th>
+                <th>Puntos</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipo in equipos %}
+            <tr>
+                
+                <td>{{ equipo.nombre }}</td>
+                <td>{{ equipo.ptos }}</td>
+                <td>
+                    <ul>
+                        <button class="btn btn-default pull-right">
+                            <a href="{{ path('equipos_edit', { 'id': equipo.id }) }}" toggle="tooltip" title="Visualizar Equipo">
+                                <span class="glyphicon glyphicon-eye-open" style="color:#00695c"></span></a>
+                        </button>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   </div>
+    
+{% endblock %}

@@ -1,0 +1,55 @@
+<?php
+
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Goles
+ *
+ * @ORM\Table(name="goles", uniqueConstraints={@ORM\UniqueConstraint(name="id_jugador", columns={"id_jugador"}), @ORM\UniqueConstraint(name="id_equipo", columns={"id_equipo"}), @ORM\UniqueConstraint(name="id_partido", columns={"id_partido"})})
+ * @ORM\Entity
+ */
+class Goles
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \Equipos
+     *
+     * @ORM\ManyToOne(targetEntity="Equipos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_equipo", referencedColumnName="id")
+     * })
+     */
+    private $idEquipo;
+
+    /**
+     * @var \Jugadores
+     *
+     * @ORM\ManyToOne(targetEntity="Jugadores")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_jugador", referencedColumnName="id")
+     * })
+     */
+    private $idJugador;
+
+    /**
+     * @var \Partidos
+     *
+     * @ORM\ManyToOne(targetEntity="Partidos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_partido", referencedColumnName="id")
+     * })
+     */
+    private $idPartido;
+
+
+}
