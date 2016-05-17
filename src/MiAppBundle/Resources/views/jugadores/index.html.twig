@@ -1,20 +1,25 @@
 {% extends 'MiAppBundle::Default/index.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Play" />
+{% endblock %}
 {% block editor %}
-    <h1 style="text-align:center">Jugadores 
-       
-             
-            <a href="{{ path('jugadores_new') }}"><button class="btn btn-default pull-right">Agregar Jugador</button></a>
-        
-       
+	<br>
+	<br>
+	<br>
+    
+   <div class="container" style="background-color: white;">
+    <h1 style="text-align:center; color:#0277bd  ; font-family: 'Play'; font-size: 40px; font-weight:bold">
+		Jugadores del Campeonato       
     </h1>
-   <div class="container">
+	<br>
     <table class="table table-hover">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Edad</th>
 				<th>Equipo</th>
+				<th>Goles</th>
                 <th></th>
             </tr>
         </thead>
@@ -24,7 +29,8 @@
                 <td>{{ jugadore.nombre }}</td>
                 <td>{{ jugadore.edad }}</td>
 				<td>{{ jugadore.idEquipo.getNombre() }}</td>
-                <td>
+                <td>{{ jugadore.goles}}</td>
+				<td>
                     <ul>
                         <button class="btn btn-default pull-right">
                             <a href="{{ path('jugadores_edit', { 'id': jugadore.id }) }}" toggle="tooltip" title="Visualizar Jugador">
@@ -37,6 +43,12 @@
         </tbody>
     </table>
    </div>
-
+   <br>
+   <div>
+		<a href="{{ path('jugadores_new') }}">
+			<button class="btn btn-default pull-left">Agregar Jugador</button>
+		</a>
+        
+   </div>
    
 {% endblock %}

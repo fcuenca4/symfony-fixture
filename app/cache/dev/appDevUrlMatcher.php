@@ -148,17 +148,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
                 not_arbitros_new:
 
-                // arbitros_show
-                if (preg_match('#^/arbitros/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                        $allow = array_merge($allow, array('GET', 'HEAD'));
-                        goto not_arbitros_show;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'arbitros_show')), array (  '_controller' => 'MiAppBundle\\Controller\\ArbitrosController::showAction',));
-                }
-                not_arbitros_show:
-
                 // arbitros_edit
                 if (preg_match('#^/arbitros/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
                     if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
@@ -250,17 +239,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'MiAppBundle\\Controller\\EquiposController::newAction',  '_route' => 'equipos_new',);
                 }
                 not_equipos_new:
-
-                // equipos_show
-                if (preg_match('#^/equipos/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                        $allow = array_merge($allow, array('GET', 'HEAD'));
-                        goto not_equipos_show;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'equipos_show')), array (  '_controller' => 'MiAppBundle\\Controller\\EquiposController::showAction',));
-                }
-                not_equipos_show:
 
                 // equipos_edit
                 if (preg_match('#^/equipos/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
@@ -376,17 +354,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'MiAppBundle\\Controller\\JugadoresController::newAction',  '_route' => 'jugadores_new',);
             }
             not_jugadores_new:
-
-            // jugadores_show
-            if (preg_match('#^/jugadores/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_jugadores_show;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'jugadores_show')), array (  '_controller' => 'MiAppBundle\\Controller\\JugadoresController::showAction',));
-            }
-            not_jugadores_show:
 
             // jugadores_edit
             if (preg_match('#^/jugadores/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {

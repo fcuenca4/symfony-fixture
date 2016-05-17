@@ -1,6 +1,7 @@
 body {
     padding-top: 60px;
     color: #6897BB;
+	background-image:url('../img/f12.jpg');
 }
 
 .navbar-inverse .navbar-brand {

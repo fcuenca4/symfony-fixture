@@ -1,15 +1,21 @@
 {% extends 'MiAppBundle::Default/index.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Play"/>
+{% endblock %}
 {% block editor %}
-    {% block titulo %}
+    <br>
+    <br>
+    <br>
+    <div class="container" style="background-color: white;">
+        {% block titulo %}
+            <h1 style="text-align:center; color:#0277bd  ; font-family: 'Play'; font-size: 40px; font-weight:bold">
+                Campeonato
 
-        <h1 style="text-align:center">Partidos
-            <a href="{{ path('partidos_new') }}">
-                <button class="btn btn-default pull-right">Agregar Partido</button>
-            </a>
-        </h1>
-    {% endblock %}
-    <div class="container">
+
+            </h1>
+        {% endblock %}
+        <br>
         <table class="table table-hover">
             <thead>
             <tr>
@@ -41,15 +47,17 @@
 
                     <td>
                         <ul>
-                            {#<li>#}
-                            {#<a href="{{ path('partidos_show', { 'id': partido.id }) }}">show</a>#}
-                            {#</li>#}
+                            {% block editref %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                            <button class="btn btn-default pull-right">
 
-                            <li>
-                                {% block editref %}
-                                    <a href="{{ path('partidos_edit', { 'id': partido.id }) }}">edit</a>
-                                {% endblock %}
-                            </li>
+                                    <a href="{{ path('partidos_edit', { 'id': partido.id }) }}" toggle="tooltip"
+                                       title="Visualizar Partido">
+                                        <span class="glyphicon glyphicon-eye-open" style="color:#00695c"></span></a>
+                                </button>
+                            {% endif %}
+
+                            {% endblock %}
                         </ul>
                     </td>
                 </tr>
@@ -57,5 +65,18 @@
             </tbody>
         </table>
 
+
     </div>
+    <br>
+    {% block administrador %}
+        {% if is_granted('ROLE_ADMIN') %}
+        <div>
+            <a href="{{ path('partidos_new') }}">
+                <button class="btn btn-default pull-left">Agregar Partido</button>
+            </a>
+        </div>
+        {% endif %}
+
+    {% endblock %}
+
 {% endblock %}

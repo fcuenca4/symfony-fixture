@@ -18,6 +18,7 @@ class JugadoresType extends AbstractType
             ->add('nombre')
             ->add('edad')
             ->add('idEquipo')
+			->add('goles')
         ;
     }
     

@@ -27,7 +27,7 @@ class PartidosController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $partidos = $em->getRepository('MiAppBundle:Partidos')->findAll();
-
+        
         return $this->render('MiAppBundle::partidos/index.html.twig', array(
             'partidos' => $partidos,
         ));

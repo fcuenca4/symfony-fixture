@@ -1,11 +1,21 @@
 {% extends 'MiAppBundle::partidos/index.html.twig' %}
 
 {% block titulo %}
-    <h1 style="text-align:center">Vista del Editor</h1>
+
+
+    <h1 style="text-align:center; color:#0277bd  ; font-family: 'Play'; font-size: 40px; font-weight:bold">
+        Vista del editor
+    </h1>
 {% endblock %}
-{% block editor %}
-    {{ parent() }}
-{% endblock %}
-{% block editref %}
-    <a href="{{ path('editor_edit', { 'id': partido.id }) }}">edit</a>
-{% endblock %}
+    {% block editor %}
+        {{ parent() }}
+    {% endblock %}
+    {% block editref %}
+        <button class="btn btn-default pull-right">
+            <a href="{{ path('editor_edit', { 'id': partido.id }) }}" toggle="tooltip" title="Visualizar Partido">
+                <span class="glyphicon glyphicon-eye-open" style="color:#00695c"></span></a>
+        </button>
+    {% endblock %}
+    {% block administrador %}
+    {% endblock %}
+

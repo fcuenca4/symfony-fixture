@@ -5,30 +5,30 @@
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ partido.id }}</td>
-            </tr>
-            <tr>
-                <th>Fechapartido</th>
-                <td>{% if partido.fechaPartido %}{{ partido.fechaPartido|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Resulteq1</th>
-                <td>{{ partido.resultEq1 }}</td>
-            </tr>
-            <tr>
-                <th>Resulteq2</th>
-                <td>{{ partido.resultEq2 }}</td>
-            </tr>
-            <tr>
-                <th>Observacion</th>
-                <td>{{ partido.observacion }}</td>
-            </tr>
-            <tr>
-                <th>Termino</th>
-                <td>{% if partido.termino %}Yes{% else %}No{% endif %}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ partido.id }}</td>
+        </tr>
+        <tr>
+            <th>Fechapartido</th>
+            <td>{% if partido.fechaPartido %}{{ partido.fechaPartido|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Resulteq1</th>
+            <td>{{ partido.resultEq1 }}</td>
+        </tr>
+        <tr>
+            <th>Resulteq2</th>
+            <td>{{ partido.resultEq2 }}</td>
+        </tr>
+        <tr>
+            <th>Observacion</th>
+            <td>{{ partido.observacion }}</td>
+        </tr>
+        <tr>
+            <th>Termino</th>
+            <td>{% if partido.termino %}Yes{% else %}No{% endif %}</td>
+        </tr>
         </tbody>
     </table>
 
@@ -37,11 +37,13 @@
             <a href="{{ path('partidos_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('partidos_edit', { 'id': partido.id }) }}">Edit</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('partidos_edit', { 'id': partido.id }) }}">Edit</a>
+            {% endif %}
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

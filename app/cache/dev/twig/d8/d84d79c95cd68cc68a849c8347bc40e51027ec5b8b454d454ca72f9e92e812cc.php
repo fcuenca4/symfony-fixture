@@ -24,20 +24,20 @@ class __TwigTemplate_0fc27207f58d0d5c8d5451ebad905caa33229d9a75087e2483d6134bb92
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_c7a8595fd3c52b6432aa0eea9c810dcb67e0d38cf864150e24e7650319228fcb = $this->env->getExtension("native_profiler");
-        $__internal_c7a8595fd3c52b6432aa0eea9c810dcb67e0d38cf864150e24e7650319228fcb->enter($__internal_c7a8595fd3c52b6432aa0eea9c810dcb67e0d38cf864150e24e7650319228fcb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MiAppBundle::Default/index.html.twig"));
+        $__internal_cab98262a97dde82f179d83f174e0fd58c46d45e501ed3e32f4639882fd49710 = $this->env->getExtension("native_profiler");
+        $__internal_cab98262a97dde82f179d83f174e0fd58c46d45e501ed3e32f4639882fd49710->enter($__internal_cab98262a97dde82f179d83f174e0fd58c46d45e501ed3e32f4639882fd49710_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MiAppBundle::Default/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_c7a8595fd3c52b6432aa0eea9c810dcb67e0d38cf864150e24e7650319228fcb->leave($__internal_c7a8595fd3c52b6432aa0eea9c810dcb67e0d38cf864150e24e7650319228fcb_prof);
+        $__internal_cab98262a97dde82f179d83f174e0fd58c46d45e501ed3e32f4639882fd49710->leave($__internal_cab98262a97dde82f179d83f174e0fd58c46d45e501ed3e32f4639882fd49710_prof);
 
     }
 
     // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_ba132ef7513ffb6208d30fa774803809956c1a9f017e2b18080fd12644402f6f = $this->env->getExtension("native_profiler");
-        $__internal_ba132ef7513ffb6208d30fa774803809956c1a9f017e2b18080fd12644402f6f->enter($__internal_ba132ef7513ffb6208d30fa774803809956c1a9f017e2b18080fd12644402f6f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_b206496a8fe8046a77cd004dca8565b5d9dd4bcfa55fd63814110a19a5e0d6b3 = $this->env->getExtension("native_profiler");
+        $__internal_b206496a8fe8046a77cd004dca8565b5d9dd4bcfa55fd63814110a19a5e0d6b3->enter($__internal_b206496a8fe8046a77cd004dca8565b5d9dd4bcfa55fd63814110a19a5e0d6b3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 3
         echo "    ";
@@ -47,19 +47,20 @@ class __TwigTemplate_0fc27207f58d0d5c8d5451ebad905caa33229d9a75087e2483d6134bb92
         // line 4
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/miapp/css/navpadding.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\"/>
+\t<link rel=\"stylesheet\" type=\"text/css\" href=\"//fonts.googleapis.com/css?family=Luckiest+Guy\" />
 ";
         
-        $__internal_ba132ef7513ffb6208d30fa774803809956c1a9f017e2b18080fd12644402f6f->leave($__internal_ba132ef7513ffb6208d30fa774803809956c1a9f017e2b18080fd12644402f6f_prof);
+        $__internal_b206496a8fe8046a77cd004dca8565b5d9dd4bcfa55fd63814110a19a5e0d6b3->leave($__internal_b206496a8fe8046a77cd004dca8565b5d9dd4bcfa55fd63814110a19a5e0d6b3_prof);
 
     }
 
-    // line 6
+    // line 7
     public function block_body($context, array $blocks = array())
     {
-        $__internal_ea755e993b6ca4887d51d799ce16656ace1eab6e85d611f57d2ca42be438b6b1 = $this->env->getExtension("native_profiler");
-        $__internal_ea755e993b6ca4887d51d799ce16656ace1eab6e85d611f57d2ca42be438b6b1->enter($__internal_ea755e993b6ca4887d51d799ce16656ace1eab6e85d611f57d2ca42be438b6b1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_7f2dac27473959ddccb6273d6fe570f695b29012fffd3b0e1755e900489a2fb4 = $this->env->getExtension("native_profiler");
+        $__internal_7f2dac27473959ddccb6273d6fe570f695b29012fffd3b0e1755e900489a2fb4->enter($__internal_7f2dac27473959ddccb6273d6fe570f695b29012fffd3b0e1755e900489a2fb4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
+        // line 8
         echo "    <div class=\"container\">
         <nav class=\"navbar navbar-inverse navbar-fixed-top\">
             <div class=\"container\">
@@ -71,67 +72,105 @@ class __TwigTemplate_0fc27207f58d0d5c8d5451ebad905caa33229d9a75087e2483d6134bb92
                         <span class=\"icon-bar\"></span>
                         <span class=\"icon-bar\"></span>
                     </button>
-                    <a class=\"navbar-brand\" href=\"/\">Torneo de Futbol</a>
+                    <a class=\"navbar-brand\" href=\"/\" style=\"font-family: 'Luckiest Guy'; font-size: 40px;\">Torneo de Futbol</a>
                 </div>
                 <div id=\"navbar\" class=\"navbar-collapse collapse\">
                     <form action=\"";
-        // line 21
+        // line 22
         echo $this->env->getExtension('routing')->getPath("fos_user_security_check");
         echo "\" method=\"post\"
                           class=\"navbar-form navbar-right form-inline\">
                         ";
-        // line 23
+        // line 24
         $this->displayBlock('login', $context, $blocks);
-        // line 29
+        // line 51
         echo "                    </form>
                 </div>
             </div>
         </nav>
+\t\t
         ";
-        // line 33
+        // line 56
         $this->displayBlock('editor', $context, $blocks);
-        // line 34
+        // line 59
         echo "    </div>
 
 ";
         
-        $__internal_ea755e993b6ca4887d51d799ce16656ace1eab6e85d611f57d2ca42be438b6b1->leave($__internal_ea755e993b6ca4887d51d799ce16656ace1eab6e85d611f57d2ca42be438b6b1_prof);
+        $__internal_7f2dac27473959ddccb6273d6fe570f695b29012fffd3b0e1755e900489a2fb4->leave($__internal_7f2dac27473959ddccb6273d6fe570f695b29012fffd3b0e1755e900489a2fb4_prof);
 
     }
 
-    // line 23
+    // line 24
     public function block_login($context, array $blocks = array())
     {
-        $__internal_59e429ebba0d1b1c7263d5dff964ffa09eb2788bdeb8d105c63206356afc5590 = $this->env->getExtension("native_profiler");
-        $__internal_59e429ebba0d1b1c7263d5dff964ffa09eb2788bdeb8d105c63206356afc5590->enter($__internal_59e429ebba0d1b1c7263d5dff964ffa09eb2788bdeb8d105c63206356afc5590_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "login"));
+        $__internal_c7e6b408898f8ae5a232f71f4c2139834f29b7639c9ae4ee1a2d00fedcecf9d4 = $this->env->getExtension("native_profiler");
+        $__internal_c7e6b408898f8ae5a232f71f4c2139834f29b7639c9ae4ee1a2d00fedcecf9d4->enter($__internal_c7e6b408898f8ae5a232f71f4c2139834f29b7639c9ae4ee1a2d00fedcecf9d4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "login"));
 
-        // line 24
+        // line 25
         echo "                            ";
         if ($this->env->getExtension('security')->isGranted("ROLE_USER")) {
-            // line 25
+            // line 26
             echo "                                Bienvenido ";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
-            echo " Privilegios: ";
+            echo " 
+\t\t\t\t\t\t\t\t<!--Privilegios: ";
+            // line 27
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "roles", array()), 0, array(), "array"), "html", null, true);
-            echo "
-                            ";
+            echo "-->
+\t\t\t\t\t\t\t\t<div class=\"btn-group\">
+\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\">
+\t\t\t\t\t\t\t\t\t\t<span class=\"glyphicon glyphicon-cog\" style=\"color:white\"></span>
+\t\t\t\t\t\t\t\t\t</button>
+ 
+\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">
+\t\t\t\t\t\t\t\t\t\t<span class=\"caret\"></span>
+\t\t\t\t\t\t\t\t\t\t<span class=\"sr-only\">Desplegar menú</span>
+\t\t\t\t\t\t\t\t\t</button>
+ 
+\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\" role=\"menu\">
+\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
+            // line 39
+            echo $this->env->getExtension('routing')->getPath("equipos_index");
+            echo "\">Equipos</a></li>
+\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
+            // line 40
+            echo $this->env->getExtension('routing')->getPath("jugadores_index");
+            echo "\">Jugadores</a></li>
+\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
+            // line 41
+            echo $this->env->getExtension('routing')->getPath("arbitros_index");
+            echo "\">Arbitros</a></li>
+\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
+            // line 42
+            echo $this->env->getExtension('routing')->getPath("partidos_index");
+            echo "\">Partidos</a></li>
+\t\t\t\t\t\t\t\t\t\t<li class=\"divider\"></li>
+\t\t\t\t\t\t\t\t\t\t<li><a href=\"#\">Cerrar Sesi&oacuten</a></li>
+\t\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t";
         }
-        // line 27
+        // line 49
         echo "
                         ";
         
-        $__internal_59e429ebba0d1b1c7263d5dff964ffa09eb2788bdeb8d105c63206356afc5590->leave($__internal_59e429ebba0d1b1c7263d5dff964ffa09eb2788bdeb8d105c63206356afc5590_prof);
+        $__internal_c7e6b408898f8ae5a232f71f4c2139834f29b7639c9ae4ee1a2d00fedcecf9d4->leave($__internal_c7e6b408898f8ae5a232f71f4c2139834f29b7639c9ae4ee1a2d00fedcecf9d4_prof);
 
     }
 
-    // line 33
+    // line 56
     public function block_editor($context, array $blocks = array())
     {
-        $__internal_88db99a62bd0ed701254d739ab5d3bf2e7a249e9d0ff9beb95eaecd09ade92e5 = $this->env->getExtension("native_profiler");
-        $__internal_88db99a62bd0ed701254d739ab5d3bf2e7a249e9d0ff9beb95eaecd09ade92e5->enter($__internal_88db99a62bd0ed701254d739ab5d3bf2e7a249e9d0ff9beb95eaecd09ade92e5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "editor"));
+        $__internal_f7137f44ab9729d89de86ab9b1b264acbab51bc79fb8f40b1276c1a56f331806 = $this->env->getExtension("native_profiler");
+        $__internal_f7137f44ab9729d89de86ab9b1b264acbab51bc79fb8f40b1276c1a56f331806->enter($__internal_f7137f44ab9729d89de86ab9b1b264acbab51bc79fb8f40b1276c1a56f331806_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "editor"));
 
+        // line 57
+        echo "\t\t
+        ";
         
-        $__internal_88db99a62bd0ed701254d739ab5d3bf2e7a249e9d0ff9beb95eaecd09ade92e5->leave($__internal_88db99a62bd0ed701254d739ab5d3bf2e7a249e9d0ff9beb95eaecd09ade92e5_prof);
+        $__internal_f7137f44ab9729d89de86ab9b1b264acbab51bc79fb8f40b1276c1a56f331806->leave($__internal_f7137f44ab9729d89de86ab9b1b264acbab51bc79fb8f40b1276c1a56f331806_prof);
 
     }
 
@@ -147,13 +186,14 @@ class __TwigTemplate_0fc27207f58d0d5c8d5451ebad905caa33229d9a75087e2483d6134bb92
 
     public function getDebugInfo()
     {
-        return array (  128 => 33,  120 => 27,  112 => 25,  109 => 24,  103 => 23,  94 => 34,  92 => 33,  86 => 29,  84 => 23,  79 => 21,  63 => 7,  57 => 6,  48 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  170 => 57,  164 => 56,  156 => 49,  146 => 42,  142 => 41,  138 => 40,  134 => 39,  119 => 27,  114 => 26,  111 => 25,  105 => 24,  96 => 59,  94 => 56,  87 => 51,  85 => 24,  80 => 22,  64 => 8,  58 => 7,  48 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
 /* {% extends '::base.html.twig' %}*/
 /* {% block stylesheets %}*/
 /*     {{ parent() }}*/
 /*     <link href="{{ asset('bundles/miapp/css/navpadding.css') }}" type="text/css" rel="stylesheet"/>*/
+/* 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Luckiest+Guy" />*/
 /* {% endblock %}*/
 /* {% block body %}*/
 /*     <div class="container">*/
@@ -167,22 +207,46 @@ class __TwigTemplate_0fc27207f58d0d5c8d5451ebad905caa33229d9a75087e2483d6134bb92
 /*                         <span class="icon-bar"></span>*/
 /*                         <span class="icon-bar"></span>*/
 /*                     </button>*/
-/*                     <a class="navbar-brand" href="/">Torneo de Futbol</a>*/
+/*                     <a class="navbar-brand" href="/" style="font-family: 'Luckiest Guy'; font-size: 40px;">Torneo de Futbol</a>*/
 /*                 </div>*/
 /*                 <div id="navbar" class="navbar-collapse collapse">*/
 /*                     <form action="{{ path("fos_user_security_check") }}" method="post"*/
 /*                           class="navbar-form navbar-right form-inline">*/
 /*                         {% block login %}*/
 /*                             {% if is_granted("ROLE_USER") %}*/
-/*                                 Bienvenido {{ app.user.username }} Privilegios: {{ app.user.roles[0] }}*/
-/*                             {% endif %}*/
+/*                                 Bienvenido {{ app.user.username }} */
+/* 								<!--Privilegios: {{ app.user.roles[0] }}-->*/
+/* 								<div class="btn-group">*/
+/* 									<button type="button" class="btn btn-primary">*/
+/* 										<span class="glyphicon glyphicon-cog" style="color:white"></span>*/
+/* 									</button>*/
+/*  */
+/* 									<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">*/
+/* 										<span class="caret"></span>*/
+/* 										<span class="sr-only">Desplegar menú</span>*/
+/* 									</button>*/
+/*  */
+/* 									<ul class="dropdown-menu" role="menu">*/
+/* 										<li><a href="{{path('equipos_index')}}">Equipos</a></li>*/
+/* 										<li><a href="{{path('jugadores_index')}}">Jugadores</a></li>*/
+/* 										<li><a href="{{path('arbitros_index')}}">Arbitros</a></li>*/
+/* 										<li><a href="{{path('partidos_index')}}">Partidos</a></li>*/
+/* 										<li class="divider"></li>*/
+/* 										<li><a href="#">Cerrar Sesi&oacuten</a></li>*/
+/* 									</ul>*/
+/* 								</div>*/
+/* 							*/
+/* 							{% endif %}*/
 /* */
 /*                         {% endblock %}*/
 /*                     </form>*/
 /*                 </div>*/
 /*             </div>*/
 /*         </nav>*/
-/*         {% block editor %}{% endblock %}*/
+/* 		*/
+/*         {% block editor %}*/
+/* 		*/
+/*         {% endblock %}*/
 /*     </div>*/
 /* */
 /* {% endblock %}*/

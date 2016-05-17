@@ -45,6 +45,12 @@ class Jugadores
      */
     private $idEquipo;
 
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="goles", type="integer", nullable=false)
+     */
+    private $goles;
 
 
     /**
@@ -56,7 +62,31 @@ class Jugadores
     {
         return $this->id;
     }
+	
+	/**
+     * Set goles
+     *
+     * @param integer $goles
+     * @return Jugadores
+     */
+    public function setGoles($goles)
+    {
+        $this->goles = $goles;
 
+        return $this;
+    }
+
+    /**
+     * Get goles
+     *
+     * @return integer 
+     */
+    public function getGoles()
+    {
+        return $this->goles;
+    }
+
+	
     /**
      * Set nombre
      *

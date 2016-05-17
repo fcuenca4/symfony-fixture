@@ -50,7 +50,7 @@ class JugadoresController extends Controller
             $em->persist($jugadore);
             $em->flush();
 
-            return $this->redirectToRoute('jugadores_show', array('id' => $jugadore->getId()));
+            return $this->redirectToRoute('jugadores_index');
         }
 
         return $this->render('MiAppBundle::jugadores/new.html.twig', array(
@@ -64,7 +64,7 @@ class JugadoresController extends Controller
      *
      * @Route("/{id}", name="jugadores_show")
      * @Method("GET")
-     */
+     
     public function showAction(Jugadores $jugadore)
     {
         $deleteForm = $this->createDeleteForm($jugadore);
@@ -73,7 +73,7 @@ class JugadoresController extends Controller
             'jugadore' => $jugadore,
             'delete_form' => $deleteForm->createView(),
         ));
-    }
+    }*/
 
     /**
      * Displays a form to edit an existing Jugadores entity.
@@ -92,7 +92,7 @@ class JugadoresController extends Controller
             $em->persist($jugadore);
             $em->flush();
 
-            return $this->redirectToRoute('jugadores_edit', array('id' => $jugadore->getId()));
+            return $this->redirectToRoute('jugadores_index');
         }
 
         return $this->render('MiAppBundle::jugadores/edit.html.twig', array(

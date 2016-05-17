@@ -50,7 +50,7 @@ class EquiposController extends Controller
             $em->persist($equipo);
             $em->flush();
 
-            return $this->redirectToRoute('equipos_show', array('id' => $equipo->getId()));
+            return $this->redirectToRoute('equipos_index');
         }
 
         return $this->render('MiAppBundle::equipos/new.html.twig', array(
@@ -64,7 +64,7 @@ class EquiposController extends Controller
      *
      * @Route("/{id}", name="equipos_show")
      * @Method("GET")
-     */
+     
     public function showAction(Equipos $equipo)
     {
         $deleteForm = $this->createDeleteForm($equipo);
@@ -73,7 +73,7 @@ class EquiposController extends Controller
             'equipo' => $equipo,
             'delete_form' => $deleteForm->createView(),
         ));
-    }
+    }*/
 
     /**
      * Displays a form to edit an existing Equipos entity.
@@ -92,7 +92,7 @@ class EquiposController extends Controller
             $em->persist($equipo);
             $em->flush();
 
-            return $this->redirectToRoute('equipos_edit', array('id' => $equipo->getId()));
+            return $this->redirectToRoute('equipos_index');
         }
 
         return $this->render('MiAppBundle::equipos/edit.html.twig', array(

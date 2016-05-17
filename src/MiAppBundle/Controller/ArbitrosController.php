@@ -50,7 +50,7 @@ class ArbitrosController extends Controller
             $em->persist($arbitro);
             $em->flush();
 
-            return $this->redirectToRoute('arbitros_show', array('id' => $arbitro->getId()));
+            return $this->redirectToRoute('arbitros_index');
         }
 
         return $this->render('MiAppBundle::arbitros/new.html.twig', array(
@@ -64,7 +64,7 @@ class ArbitrosController extends Controller
      *
      * @Route("/{id}", name="arbitros_show")
      * @Method("GET")
-     */
+     
     public function showAction(Arbitros $arbitro)
     {
         $deleteForm = $this->createDeleteForm($arbitro);
@@ -73,7 +73,7 @@ class ArbitrosController extends Controller
             'arbitro' => $arbitro,
             'delete_form' => $deleteForm->createView(),
         ));
-    }
+    }*/
 
     /**
      * Displays a form to edit an existing Arbitros entity.
@@ -92,7 +92,7 @@ class ArbitrosController extends Controller
             $em->persist($arbitro);
             $em->flush();
 
-            return $this->redirectToRoute('arbitros_edit', array('id' => $arbitro->getId()));
+            return $this->redirectToRoute('arbitros_index');
         }
 
         return $this->render('MiAppBundle::arbitros/edit.html.twig', array(

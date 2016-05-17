@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use MiAppBundle\Entity\Partidos;
+use MiAppBundle\Form\PartidosType;
 
 class DefaultController extends Controller
 {
@@ -15,27 +17,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        if (!$this->isLogged()) {
-            $response = ($this->redirect('/login'));
-        } else {
-            $em = $this->getDoctrine()->getManager();
-            $equipos = $em->getRepository('MiAppBundle:Equipos')->findAll();
-
-            return $this->render('MiAppBundle::/tablaPosiciones.html.twig', array(
-                'equipos' => $equipos,
-            ));
-//            $usr = $this->container->get('security.token_storage')->getToken()->getUser();
-//            if ($usr->hasRole('ROLE_ADMIN')) {
-//                return $this->RedirectToRoute('admin_index');
-//            } else if ($usr->hasRole('ROLE_USER')) {
-//                {
-//                    return $this->RedirectToRoute('editor_index');
-//                }
-//            }
-        }
-        return $response;
-
+        return $response = ($this->redirect('/partidos'));
     }
+
 
     public
     function isLogged()

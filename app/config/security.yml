@@ -46,7 +46,6 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/editor/, role: [ROLE_USER,ROLE_ADMIN] }
-        - { path: ^/partidos/, role: ROLE_ADMIN }
         - { path: ^/jugadores/, role: ROLE_ADMIN }
         - { path: ^/goles/, role: ROLE_ADMIN }
         - { path: ^/equipos/, role: ROLE_ADMIN }

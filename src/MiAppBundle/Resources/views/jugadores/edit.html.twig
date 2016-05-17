@@ -1,21 +1,39 @@
 {% extends 'MiAppBundle::Default/index.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Play" />
+{% endblock %}
 {% block editor %}
-    <h1>Jugadores edit</h1>
+	<br>
+	<br>
+	
+	<div class="containar" style="background-color: white;" >
+		<br>
+		<h1 style="text-align:center; color:#0277bd  ; font-family: 'Play'; font-size: 40px; font-weight:bold">Editar Jugador
+            <button class="btn btn-default  pull-left ">
+                <a href="{{ path('jugadores_index') }}" toggle="tooltip" title="Volver">
+                    <span class="glyphicon glyphicon-chevron-left" ></span>
+                </a>
+            </button>
+		</h1>
+		<br>
+		{{ form_start(edit_form) }}
+			{{ form_widget(edit_form) }}
+		<br>
+	</div>
+	<div>
+		<br>
+			<button class="btn btn-default pull-right" type="submit" value="Guardar" toggle="tooltip" title="Guardar cambios" >
+				Guardar	
+			</button>
+		{{ form_end(edit_form) }}
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('jugadores_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    
+       
+        {{ form_start(delete_form) }}
+           <button class="btn btn-default pull-right" type="submit" value="Eliminar" toggle="tooltip" title="Eliminar jugador" >
+				Eliminar
+				</button>
+        {{ form_end(delete_form) }}
+     </div>    
 {% endblock %}

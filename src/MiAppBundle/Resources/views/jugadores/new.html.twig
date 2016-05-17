@@ -1,16 +1,31 @@
 {% extends 'MiAppBundle::Default/index.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Play" />
+{% endblock %}
 {% block editor %}
-    <h1>Jugadores creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('jugadores_index') }}">Back to the list</a>
-        </li>
-    </ul>
+	<br>
+	<br>
+	<br>
+	<div class="container" style="background-color: white;">
+		 
+		 <h1 style="text-align:center; color:#0277bd  ; font-family: 'Play'; font-size: 40px; font-weight:bold">Crear Jugador
+            <button class="btn btn-default  pull-left ">
+                <a href="{{ path('jugadores_index') }}" toggle="tooltip" title="Volver">
+                    <span class="glyphicon glyphicon-chevron-left" style="color:#00695c"></span>
+                </a>
+            </button>
+		</h1>
+		<br>
+		{{ form_start(form) }}
+			{{ form_widget(form) }}
+	</div>
+	<div>
+		<br>
+			<button class="btn btn-default pull-right" type="submit" value="Guardar" toggle="tooltip" title="Guardar nuevo jugador" >
+				Guardar	
+			</button>
+		{{ form_end(form) }}
+	</div>
+   
 {% endblock %}
